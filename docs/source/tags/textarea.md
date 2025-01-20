@@ -21,12 +21,15 @@ Use with the following data types: audio, image, HTML, paragraphs, text, time se
 | [placeholder] | <code>string</code> |  | Placeholder text |
 | [maxSubmissions] | <code>string</code> |  | Maximum number of submissions |
 | [editable] | <code>boolean</code> | <code>false</code> | Whether to display an editable textarea |
+| [skipDuplicates] | <code>boolean</code> | <code>false</code> | Prevent duplicates in textarea inputs |
 | [transcription] | <code>boolean</code> | <code>false</code> | If false, always show editor |
+| [displayMode] | <code>tag</code> \| <code>region-list</code> | <code>tag</code> | Display mode for the textarea; region-list shows it for every region in regions list |
 | [rows] | <code>number</code> |  | Number of rows in the textarea |
 | [required] | <code>boolean</code> | <code>false</code> | Validate whether content in textarea is required |
 | [requiredMessage] | <code>string</code> |  | Message to show if validation fails |
 | [showSubmitButton] | <code>boolean</code> |  | Whether to show or hide the submit button. By default it shows when there are more than one rows of text, such as in textarea mode. |
 | [perRegion] | <code>boolean</code> |  | Use this tag to label regions instead of whole objects |
+| [perItem] | <code>boolean</code> |  | Use this tag to label items inside objects instead of whole objects |
 
 ### Example
 
@@ -50,5 +53,15 @@ You can combine the `TextArea` tag with other tags for OCR or other transcriptio
   </Labels>
   <Rectangle name="bbox" toName="image" strokeWidth="3"/>
   <TextArea name="transcription" toName="image" editable="true" perRegion="true" required="true" maxSubmissions="1" rows="5" placeholder="Recognized Text" displayMode="region-list"/>
+</View>
+```
+### Example
+
+You can keep submissions unique.
+
+```html
+<View>
+  <Audio name="audio" value="$audio"/>
+  <TextArea name="genre" toName="audio" skipDuplicates="true" />
 </View>
 ```
