@@ -24,6 +24,7 @@ Use with the following data types: audio, image, HTML, paragraphs, text, time se
 | [required] | <code>boolean</code> | <code>false</code> | Whether rating validation is required |
 | [requiredMessage] | <code>string</code> |  | Message to show if validation fails |
 | [perRegion] | <code>boolean</code> |  | Use this tag to rate regions instead of the whole object |
+| [perItem] | <code>boolean</code> |  | Use this tag to rate items inside the object instead of the whole object |
 
 ### Example
 
